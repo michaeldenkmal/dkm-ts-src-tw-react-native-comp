@@ -8,3 +8,10 @@ git clone https://github.com/michaeldenkmal/dkm-ts-src-tw-react-native-comp.git 
 move .\src\t\* .\src\dkm_comps
 move .\src\t\.git .\src\dkm_comps
 ```
+
+# Dependencies
+
+```json
+    "decimal.js": "^10.6.0",
+  "@at.dkm/dkm-ts-lib-decimal":"^1.0.0"
+```

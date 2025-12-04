@@ -1,5 +1,5 @@
 import {calcRealClassName} from "./native_ctrl_util.ts";
-import type {MayBeString} from "../dkm_django/dkm_django_m.ts";
+import type {MayBeString} from "@at.dkm/dkm-ts-lib-gen/lib/may_be_types";
 
 export interface RadioOption {
     label: string;

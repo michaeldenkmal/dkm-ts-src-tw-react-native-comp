@@ -1,6 +1,6 @@
 import {calcRealClassName} from "./native_ctrl_util.ts";
 import NativeErrInfo from "./NativeErrInfo.tsx";
-import type {MayBeString} from "../dkm_django/dkm_django_m.ts";
+import type {MayBeString} from "@at.dkm/dkm-ts-lib-gen/lib/may_be_types";
 
 export interface DkmFieldRowProps {
     label: string

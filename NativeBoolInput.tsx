@@ -1,5 +1,5 @@
 import {calcRealClassName} from "./native_ctrl_util.ts";
-import type {MayBeBool} from "../dkm_django/dkm_django_m.ts";
+import type {MayBeBool} from "@at.dkm/dkm-ts-lib-gen/lib/may_be_types";
 
 interface Props {
     value:MayBeBool;

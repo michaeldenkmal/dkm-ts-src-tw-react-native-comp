@@ -1,4 +1,4 @@
-import type {MayBeString} from "../dkm_django/dkm_django_m.ts";
+import type {MayBeString} from "@at.dkm/dkm-ts-lib-gen/lib/may_be_types";
 
 interface Props{
     error:MayBeString

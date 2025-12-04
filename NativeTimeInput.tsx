@@ -1,7 +1,7 @@
 import "./NativeTimeInput.css"
 import {fmt2DigitNum} from "@at.dkm/dkm-ts-lib-gen/lib/u";
 import {calcRealClassName} from "./native_ctrl_util.ts";
-import type {MayBeDate} from "../dkm_django/dkm_django_m.ts";
+import type {MayBeDate} from "@at.dkm/dkm-ts-lib-gen/lib/may_be_types";
 
 interface Props {
     value:MayBeDate
