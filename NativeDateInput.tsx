@@ -3,6 +3,7 @@ import * as u from "@at.dkm/dkm-ts-lib-gen/lib/u"
 import "./NativeDateInput.css"
 import {calcRealClassName} from "./native_ctrl_util.ts";
 import type {MayBeDate} from "@at.dkm/dkm-ts-lib-gen/lib/may_be_types";
+import {useEffect, useState} from "react";
 
 
 interface Props {
@@ -34,21 +35,44 @@ function NativeDateInput(props: Props) {
 
     const szMin = fmtGermanDate(props.mindate||"" );
     const szMax = fmtGermanDate(props.maxdate||"");
-    const value = fmtGoogleDateInputVal(props.value);
+
     const  className = calcRealClassName("native-date-input",props.className,props.additionalClassName);
+    const [s_value, s_setValue] = useState("");
+    useEffect(()=>{
+        const value = fmtGoogleDateInputVal(props.value);
+        s_setValue(value);
+    },[props.value])
 
 
     function handleChange(evt: React.ChangeEvent<HTMLInputElement>) {
-        const inp = evt.target as HTMLInputElement;
-        props.onChange(inp.valueAsDate);
+        // const inp = evt.target as HTMLInputElement;
+        // const utcDate:MayBeDate = inp.valueAsDate;
+        // const realDate:MayBeDate =  utcDate ? new Date(utcDate.getUTCFullYear(), utcDate.getUTCMonth(), utcDate.getUTCDate()) : null;
+        // props.onChange(realDate);
+        s_setValue(evt.target.value)
+    }
+    function commit(v) {
+        if (!v || v.length !== 10) return; // ignorier unvollständig
+        const [y,m,d] = v.split("-");
+        const date = new Date(+y, m-1, +d);
+        // hier z.B. props.onChange(v) oder parse zu Date
+        props.onChange(date)
     }
 
+    function handleBlur(e) {
+        commit(e.target.value);
+    }
+
+    function handleKeyDown(e) {
+        if (e.key === "Enter") commit(e.currentTarget.value);
+    }
     const addProps:Record<string, any > ={};
     if (props.disabled) {
         addProps.disabled = true;
     }
 
-    return <input type={"date"} value={value} onChange={handleChange} className={className}
+    return <input type={"date"} value={s_value} onChange={handleChange} className={className}
+                  onBlur={handleBlur} onKeyDown={handleKeyDown}
         min={szMin} max={szMax} {...addProps} />
 }
 
