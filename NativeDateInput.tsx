@@ -2,7 +2,7 @@ import {fmtGermanDate} from "@at.dkm/dkm-ts-lib-gen/lib/dateUtil";
 import * as u from "@at.dkm/dkm-ts-lib-gen/lib/u"
 import "./NativeDateInput.css"
 import {calcRealClassName} from "./native_ctrl_util.ts";
-import type {MayBeDate} from "../dkm_django/dkm_django_m.ts";
+import type {MayBeDate} from "@at.dkm/dkm-ts-lib-django/lib/dkm_django_m";
 
 
 interface Props {

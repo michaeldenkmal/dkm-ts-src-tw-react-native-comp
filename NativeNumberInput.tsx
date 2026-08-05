@@ -26,7 +26,7 @@ export function NativeNumberInput(props:Props) {
             if (!props.onChange) {
                 return
             }
-            if (!evt.target.value) {
+            if ((typeof evt.target.value =="undefined") || (evt.target.value ==null)) {
                 props.onChange(null);
             } else {
                 props.onChange(parseFloat(evt.target.value));
@@ -41,7 +41,7 @@ export function NativeNumberInput(props:Props) {
             additionalProps["name"] = props.name;
         }
         return <input className={className} type="number" inputMode="numeric" onChange={handleChange}
-                      value={props.value||""} {...additionalProps} required={props.required} />
+                      value={props.value??""} {...additionalProps} required={props.required} />
     }
 
     return render();

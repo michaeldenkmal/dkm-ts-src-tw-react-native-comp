@@ -1,4 +1,4 @@
-import type {MayBeDecimal} from "../dkm_django/dkm_django_m.ts";
+import type {MayBeDecimal} from "@at.dkm/dkm-ts-lib-django/lib/dkm_django_m";
 import Decimal from "decimal.js";
 
 export function fmtDecimal2Digits(dec:MayBeDecimal):string {

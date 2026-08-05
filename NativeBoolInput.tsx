@@ -1,5 +1,5 @@
 import {calcRealClassName} from "./native_ctrl_util.ts";
-import type {MayBeBool} from "../dkm_django/dkm_django_m.ts";
+import type {MayBeBool} from "@at.dkm/dkm-ts-lib-django/lib/dkm_django_m";
 
 interface Props {
     value:MayBeBool;
@@ -8,6 +8,7 @@ interface Props {
     additionalClassName?:string
     disabled?:boolean
     required?:boolean
+    readonly?:boolean
 }
 
 export default function NativeBoolInput(props: Props) {
@@ -23,5 +24,6 @@ export default function NativeBoolInput(props: Props) {
         onChange={handleChange}
         disabled={props.disabled}
         required={props.required}
+        readOnly={props.readonly||false}
     />
 }
