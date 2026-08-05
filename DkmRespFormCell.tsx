@@ -1,6 +1,6 @@
-import type {MayBeString} from "@at.dkm/dkm-ts-lib-django/lib/dkm_django_m";
 import {calcRealClassName} from "./native_ctrl_util.ts";
 import NativeErrInfo from "./NativeErrInfo.tsx";
+import type {MayBeString} from "@at.dkm/dkm-ts-lib-gen/lib/may_be_types";
 
 export interface Props {
     label: string
